@@ -1,0 +1,53 @@
+.todo-item-container {
+    display: flex;
+    border: 1px solid #bfbfbf;
+    padding: 5px;
+    margin-bottom: -1px;
+}
+
+.todo-item-label {
+    width: 40em;
+    user-select: none;
+    /* supported by Chrome and Opera */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+}
+
+.todo-item-check {
+    width: 1.5em;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.todo-item-text {
+    color: #606060;
+    font-size: 1.5em;
+}
+
+.todo-item-delete {
+    width: 1.5em;
+    color: #606060;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 1.5em;
+    transition: color 1s ease;
+    transition: background-color 1s ease;
+}
+
+.todo-item-delete:hover {
+    color: white;
+    background-color: #ff3939;
+}
+
+.todo-item-delete:active {
+    color: white;
+    background-color: #ff3939;
+    opacity: 0.75;
+}
