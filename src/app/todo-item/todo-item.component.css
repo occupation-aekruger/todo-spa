@@ -1,33 +1,79 @@
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 1.5em;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 35em;
+    color: #606060;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 3px;
+    border: 2px solid #606060;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+    background-color: white;
+
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+    background-color: #25a491;
+    border: 2px solid #25a491;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
 .todo-item-container {
     display: flex;
     border: 1px solid #bfbfbf;
     padding: 5px;
     margin-bottom: -1px;
-}
-
-.todo-item-label {
-    width: 40em;
-    user-select: none;
-    /* supported by Chrome and Opera */
-    -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* Konqueror HTML */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
-}
-
-.todo-item-check {
-    width: 1.5em;
-    text-align: center;
-    font-size: 1.5em;
-}
-
-.todo-item-text {
-    color: #606060;
-    font-size: 1.5em;
 }
 
 .todo-item-delete {
@@ -39,6 +85,11 @@
     font-size: 1.5em;
     transition: color 1s ease;
     transition: background-color 1s ease;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .todo-item-delete:hover {

@@ -1,7 +1,6 @@
 <div class="todo-item-container">
-    <label class="todo-item-label" for="todo-1" (change)="onChange()">
-        <input class="todo-item-check" type="checkbox" id="todo-1" [checked]="value ? true : false">
-        <span class="todo-item-text">{{key}}</span>
+    <label class="container" for="todo-{{id}}" (change)="onChange()">{{key}} <input type="checkbox" id="todo-{{id}}" [checked]="value ? true : false">
+        <span class="checkmark"></span>
     </label>
-    <div class="todo-item-delete">X</div>
+    <div class="todo-item-delete" (click)="deleteItem()">X</div>
 </div>
