@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
 
 @Component({
@@ -6,13 +6,16 @@ import { AppService } from './app.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'todo-spa';
   app = AppService
 
   constructor() {
-    AppService.AddItem({ key: 'Do some work', value: true })
-    AppService.AddItem({ key: 'Write some code', value: false })
+    AppService.AddItem({ key: 'Do some work', value: false })
+  }
+
+  ngOnInit() {
+    (document.getElementById('todo-add-text') as HTMLInputElement).focus()
   }
 
   addItem(e: any) {
