@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AppService {
 
+  public static activeItemCount: number = 0
   public static items: iKvp[] = []
 
   constructor() { }
@@ -15,12 +16,21 @@ export class AppService {
       key: item.key,
       value: item.value
     })
+
+    this.activeItemCount = this.items.filter(item => item.value === false).length
   }
 
   public static DeleteItem(id: string) {
     this.items = this.items.filter(function (obj) {
       return obj.id !== id;
     });
+
+    this.activeItemCount = this.items.filter(item => item.value === false).length
+  }
+
+  public static UpdateItem(id: string, value: boolean) {
+    this.items.filter(item => item.id === id)[0].value = value
+    this.activeItemCount = this.items.filter(item => item.value === false).length
   }
 
   private static NewGuid(): string {

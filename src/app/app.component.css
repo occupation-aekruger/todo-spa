@@ -10,3 +10,32 @@
     display: flex;
     flex-direction: column;
 }
+
+.todo-add-container {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.todo-add-text {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    padding-left: 10px;
+    font-size: 1.25em;
+    width: 45em;
+    border-bottom: 1px solid #797979;
+}
+
+.todo-total-container {
+    border: 1px solid #bfbfbf;
+    text-align: center;
+}
+
+.todo-total-text {
+    margin: 8px;
+    font-size: 1.5em;
+    color: #606060;
+}

@@ -22,10 +22,12 @@ export class TodoItemComponent implements OnInit {
     if (this.value === true)
       this.value = false
     else this.value = true
+
+    AppService.UpdateItem(this.id, this.value)
   }
 
   deleteItem() {
     if (confirm(`Are you sure you want to delete: ${this.key}?`) == true)
-      this.app.DeleteItem(this.id)
+      AppService.DeleteItem(this.id)
   }
 }

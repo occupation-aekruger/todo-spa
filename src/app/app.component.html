@@ -1,6 +1,14 @@
 <app-page-header></app-page-header>
 <div class="todo-list">
   <div class="todo-list-items">
+    <div class="todo-add-container">
+      <input id="todo-add-text" autocomplete="off" type="text" class="todo-add-text" placeholder="What needs to be done?" (change)="addItem($event)" (keydown.enter)="addItem($event)">
+    </div>
     <app-todo-item *ngFor="let item of app.items; let i=index" [id]="item.id" [key]="item.key" [value]="item.value"></app-todo-item>
+    <div class="todo-total-container">
+      <p *ngIf="app.activeItemCount > 0" class="todo-total-text"><b>{{app.activeItemCount}}</b> item{{(app.activeItemCount == 1) ? '' : 's'}} left to do</p>
+      <p *ngIf="app.activeItemCount == 0 && app.items.length > 0" class="todo-total-text">All items completed</p>
+      <p *ngIf="app.activeItemCount == 0 && app.items.length === 0" class="todo-total-text">No items to complete</p>
+    </div>
   </div>
 </div>

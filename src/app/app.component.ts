@@ -14,4 +14,13 @@ export class AppComponent {
     AppService.AddItem({ key: 'Do some work', value: true })
     AppService.AddItem({ key: 'Write some code', value: false })
   }
+
+  addItem(e: any) {
+    const value = e?.target?.value?.trim().ToTitleCase() ?? ''
+
+    if (value !== '' && value !== null && value !== undefined) {
+      AppService.AddItem({ key: value, value: false });
+      (document.getElementById('todo-add-text') as HTMLInputElement).value = ''
+    }
+  }
 }
